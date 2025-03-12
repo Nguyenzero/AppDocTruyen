@@ -1,0 +1,33 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <!-- Hình ảnh truyện -->
+    <ImageView
+        android:id="@+id/imgTruyen"
+        android:layout_width="120dp"
+        android:layout_height="160dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/kham_pha"/>
+
+    <!-- Tên truyện -->
+    <TextView
+        android:id="@+id/tvTenTruyen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tên Truyện"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_marginTop="4dp"/>
+
+    <!-- Thể loại -->
+    <TextView
+        android:id="@+id/tvTheLoai"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thể loại"
+        android:textSize="12sp"
+        android:textColor="@android:color/darker_gray"/>
+</LinearLayout>

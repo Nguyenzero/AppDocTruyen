@@ -1,0 +1,76 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp">
+
+    <!-- Hình ảnh truyện -->
+    <ImageView
+        android:id="@+id/imgTruyen"
+        android:layout_width="120dp"
+        android:layout_height="205dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/kham_pha" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <!-- Tên truyện -->
+        <TextView
+            android:id="@+id/tvTenTruyen"
+            android:layout_width="275dp"
+            android:layout_height="wrap_content"
+            android:text="Đỉnh Cấp Khí Vận, Lặng Lẽ Tu Luyện Ngàn Năm"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- Thể loại -->
+        <TextView
+            android:id="@+id/tvTheLoai"
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:text="Tiên Hiệp"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp" />
+
+        <!-- Đánh giá sao -->
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:rating="4.5" />
+
+        <!-- Nút Đọc và Thêm -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnDoc"
+                android:layout_width="100dp"
+                android:layout_height="52dp"
+                android:backgroundTint="@color/black"
+                android:text="Đọc"
+                android:textColor="@android:color/white" />
+
+            <Button
+                android:id="@+id/btnThem"
+                android:layout_width="64dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:backgroundTint="@color/blue"
+                android:text="+"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:layout_marginTop="5dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
