@@ -1,0 +1,90 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Nhập URL ảnh -->
+        <EditText
+            android:layout_marginTop="20dp"
+            android:id="@+id/edtImageUrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập URL ảnh"
+            android:minHeight="48dp"
+            android:inputType="textUri"/>
+
+        <!-- Nút tải ảnh -->
+        <Button
+            android:id="@+id/btnLoadImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tải ảnh"/>
+
+        <!-- Ảnh bìa -->
+        <ImageView
+            android:id="@+id/imgCover"
+            android:layout_width="match_parent"
+            android:layout_height="196dp"
+            android:background="@android:color/darker_gray"
+            android:scaleType="centerCrop" />
+
+        <!-- Nhập tên truyện -->
+        <EditText
+            android:id="@+id/edtTenTruyen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tên truyện"
+            android:minHeight="48dp"
+            android:inputType="text"/>
+
+        <!-- Nhập tác giả -->
+        <EditText
+            android:id="@+id/edtTacGia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tác giả"
+            android:minHeight="48dp"
+            android:inputType="text"/>
+
+        <!-- Nhập thể loại -->
+        <EditText
+            android:id="@+id/edtTheLoai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Thể loại"
+            android:minHeight="48dp"
+            android:inputType="text"/>
+
+        <!-- Trạng thái -->
+        <Spinner
+            android:id="@+id/spinnerTrangThai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:entries="@array/trang_thai_truyen"/>
+
+        <!-- Nhập mô tả -->
+        <EditText
+            android:id="@+id/edtMoTa"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:hint="Mô tả nội dung"
+            android:gravity="top"
+            android:inputType="textMultiLine"/>
+
+        <!-- Nút Thêm Truyện -->
+        <Button
+            android:id="@+id/btnThemTruyen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Thêm Truyện"
+            android:backgroundTint="@color/black"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="16dp"/>
+    </LinearLayout>
+</ScrollView>

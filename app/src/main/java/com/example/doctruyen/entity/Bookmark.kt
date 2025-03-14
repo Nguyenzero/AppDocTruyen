@@ -5,11 +5,11 @@ import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
 @Entity(
-    tableName = "bookmark",
+    tableName = "bookmarks",
     foreignKeys = [
-        ForeignKey(entity = User::class, parentColumns = ["id"], childColumns = ["userId"]),
-        ForeignKey(entity = Story::class, parentColumns = ["id"], childColumns = ["storyId"]),
-        ForeignKey(entity = Chapter::class, parentColumns = ["id"], childColumns = ["chapterId"])
+        ForeignKey(entity = User::class, parentColumns = ["id"], childColumns = ["userId"], onDelete = ForeignKey.CASCADE),
+        ForeignKey(entity = Story::class, parentColumns = ["id"], childColumns = ["storyId"], onDelete = ForeignKey.CASCADE),
+        ForeignKey(entity = Chapter::class, parentColumns = ["id"], childColumns = ["chapterId"], onDelete = ForeignKey.CASCADE)
     ]
 )
 data class Bookmark(

@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -24,8 +27,18 @@
         <!-- Màn hình đăng ký -->
         <activity android:name=".RegisterActivity" />
         <activity android:name=".tutruyen.TuTruyen" />
-        <activity android:name=".khampha" />
+        <activity android:name=".khampha.Khampha" />
         <activity android:name=".taikhoan.taikhoan" />
+        <activity android:name=".admin.trangchu_admin" />
+        <activity android:name=".admin.quanlytruyen" />
+        <activity android:name=".admin.themtruyen"/>
+
+
+
+
+
+
+
     </application>
 
 </manifest>

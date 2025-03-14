@@ -8,8 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.doctruyen.R
-import com.example.doctruyen.khampha
+
+import com.example.doctruyen.khampha.Khampha
 import com.example.doctruyen.taikhoan.taikhoan
+
+
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class TuTruyen : AppCompatActivity() {
@@ -43,7 +46,7 @@ class TuTruyen : AppCompatActivity() {
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_kham_pha -> {
-                    val intent = Intent(this, khampha::class.java)
+                    val intent = Intent(this, Khampha::class.java)
                     startActivity(intent)
                     true
                 }

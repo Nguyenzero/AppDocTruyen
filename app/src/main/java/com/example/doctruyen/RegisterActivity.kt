@@ -28,6 +28,11 @@ class RegisterActivity : AppCompatActivity() {
             val password = edtPassword.text.toString().trim()
             val confirmPassword = edtConfirmPassword.text.toString().trim()
 
+            if (email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+                Toast.makeText(this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             if (password != confirmPassword) {
                 Toast.makeText(this, "Mật khẩu không khớp!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -36,7 +41,9 @@ class RegisterActivity : AppCompatActivity() {
             lifecycleScope.launch {
                 val existingUser = database.userDao().getUserByEmail(email)
                 if (existingUser == null) {
-                    database.userDao().insertUser(User(email = email, password = password))
+                    val newUser = User(email = email, password = password, role = "user") // Mặc định là "user"
+                    database.userDao().insertUser(newUser)
+
                     runOnUiThread {
                         Toast.makeText(this@RegisterActivity, "Đăng ký thành công!", Toast.LENGTH_SHORT).show()
                         startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))

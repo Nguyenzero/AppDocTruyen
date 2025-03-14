@@ -1,0 +1,90 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:background="@drawable/border_bottom">
+
+    <!-- Ảnh truyện -->
+    <ImageView
+        android:id="@+id/imgTruyen"
+        android:layout_width="80dp"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
+        android:background="@drawable/rounded_image"
+        android:clipToOutline="true"
+        android:src="@drawable/rounded_image" />
+
+    <!-- Thông tin truyện -->
+    <LinearLayout
+        android:layout_width="192dp"
+        android:layout_height="100dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingStart="8dp">
+
+        <TextView
+            android:id="@+id/tvTenTruyen"
+            android:layout_width="191dp"
+            android:layout_height="35dp"
+            android:text="Tên truyện"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_marginTop="15dp"
+            android:id="@+id/tvTheLoai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thể loại"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvSoChap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Số chương: 100"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- Nút Xóa -->
+    <FrameLayout
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp">
+
+        <ImageButton
+            android:id="@+id/btnXoa"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:background="?attr/selectableItemBackground"
+            android:padding="8dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/delete"
+            android:contentDescription="Xóa" />
+    </FrameLayout>
+
+    <!-- Nút Chỉnh sửa -->
+    <FrameLayout
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp">
+
+        <ImageButton
+            android:id="@+id/btnChinhSua"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:background="?attr/selectableItemBackground"
+            android:padding="8dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/edit"
+            android:contentDescription="Chỉnh sửa" />
+    </FrameLayout>
+
+</LinearLayout>

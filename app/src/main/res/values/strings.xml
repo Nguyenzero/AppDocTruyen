@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">DocTruyen</string>
+    <string-array name="trang_thai_truyen">
+        <item>Đang ra</item>
+        <item>Hoàn thành</item>
+    </string-array>
+
 </resources>

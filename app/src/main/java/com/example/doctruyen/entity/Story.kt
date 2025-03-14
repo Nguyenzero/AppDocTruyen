@@ -3,10 +3,9 @@ package com.example.doctruyen.entity
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-
-@Entity(tableName = "story")
+@Entity(tableName = "stories")
 data class Story(
-    @PrimaryKey(autoGenerate = true) val id: Int = 0, // ID truyện (tự động tăng)
+    @PrimaryKey(autoGenerate = true) val id: Int = 0, // ID truyện
     val title: String, // Tên truyện
     val author: String, // Tác giả
     val genre: String, // Thể loại
@@ -14,3 +13,4 @@ data class Story(
     val description: String, // Mô tả nội dung
     val status: String // Trạng thái (Đang ra, Hoàn thành)
 )
+

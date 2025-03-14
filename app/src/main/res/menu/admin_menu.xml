@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Spacer view to add margin at the top -->
+    <item
+        android:id="@+id/spacer"
+        android:title=""
+        android:enabled="false"
+        android:icon="@android:color/transparent"
+        android:layout="@layout/menu_spacer" />
+
+    <item
+        android:id="@+id/nav_manage_users"
+        android:title="Quản lý người dùng" />
+
+    <item
+        android:id="@+id/nav_manage_stories"
+        android:title="Quản lý truyện" />
+
+    <item
+        android:id="@+id/nav_reports"
+        android:title="Thống kê và báo cáo" />
+
+    <item
+        android:id="@+id/nav_settings"
+        android:title="Cài đặt hệ thống" />
+
+    <item
+        android:id="@+id/nav_logout"
+        android:title="Đăng xuất" />
+</menu>

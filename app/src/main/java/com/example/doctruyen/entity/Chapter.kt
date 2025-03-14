@@ -5,12 +5,12 @@ import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
 @Entity(
-    tableName = "chapter",
+    tableName = "chapters",
     foreignKeys = [ForeignKey(
         entity = Story::class,
         parentColumns = ["id"],
         childColumns = ["storyId"],
-        onDelete = ForeignKey.CASCADE // Xóa truyện sẽ xóa luôn chương
+        onDelete = ForeignKey.CASCADE // Xóa truyện sẽ xóa luôn các chương
     )]
 )
 data class Chapter(
