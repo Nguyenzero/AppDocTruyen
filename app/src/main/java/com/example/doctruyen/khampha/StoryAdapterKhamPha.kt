@@ -1,5 +1,6 @@
 package com.example.doctruyen.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.doctruyen.R
 import com.example.doctruyen.entity.Story
+import com.example.doctruyen.thongtintruyen.ChiTietTruyen
 
 class StoryAdapterKhamPha(private var stories: List<Story>) :
     RecyclerView.Adapter<StoryAdapterKhamPha.StoryViewHolder>() {
@@ -26,6 +28,8 @@ class StoryAdapterKhamPha(private var stories: List<Story>) :
 
     override fun onBindViewHolder(holder: StoryViewHolder, position: Int) {
         val story = stories[position]
+
+        // Hiển thị ảnh, tên truyện, thể loại
         Glide.with(holder.itemView.context)
             .load(story.coverImage) // Ảnh lấy từ Room Database
             .placeholder(R.drawable.kham_pha)
@@ -33,6 +37,22 @@ class StoryAdapterKhamPha(private var stories: List<Story>) :
             .into(holder.imgTruyen)
         holder.tvTenTruyen.text = story.title
         holder.tvTheLoai.text = story.genre
+
+        // Bắt sự kiện click vào truyện
+        holder.itemView.setOnClickListener {
+            val context = holder.itemView.context
+            val intent = Intent(context, ChiTietTruyen::class.java).apply {
+                putExtra("TRUYEN_ID", story.id)
+                putExtra("TEN_TRUYEN", story.title ?: "Không có tên")
+                putExtra("TAC_GIA", story.author ?: "Không rõ tác giả")
+                putExtra("THE_LOAI", story.genre ?: "Chưa có thể loại")
+                putExtra("HINH_ANH", story.coverImage ?: "")
+                putExtra("DESCRIPTION", story.description)
+
+
+            }
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int = stories.size

@@ -23,10 +23,11 @@ class BannerAdapter(private var imageUrls: List<String>) :
     override fun onBindViewHolder(holder: BannerViewHolder, position: Int) {
         Glide.with(holder.itemView.context)
             .load(imageUrls[position])
-            .placeholder(R.drawable.kham_pha)
-            .error(R.drawable.kham_pha)
+            .placeholder(R.drawable.kham_pha) // Hiển thị khi loading
+            .error(R.drawable.kham_pha) // Hiển thị khi lỗi
             .into(holder.imageView)
     }
+
 
     override fun getItemCount(): Int = imageUrls.size
 

@@ -32,6 +32,9 @@
         <activity android:name=".admin.trangchu_admin" />
         <activity android:name=".admin.quanlytruyen" />
         <activity android:name=".admin.themtruyen"/>
+        <activity android:name=".thongtintruyen.ChiTietTruyen"/>
+        <activity android:name=".admin.ThemChuong"/>
+
 
 
 

@@ -9,7 +9,7 @@ package com.example.doctruyen.taikhoan
                             import com.example.doctruyen.LoginActivity
                             import com.example.doctruyen.R
                             import com.example.doctruyen.khampha.Khampha
-
+                            import com.example.doctruyen.tutruyen.TuTruyen
 
 
                             import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -60,7 +60,7 @@ package com.example.doctruyen.taikhoan
                                                 true
                                             }
                                             R.id.nav_tai_khoan -> {
-                                                val intent = Intent(this, taikhoan::class.java)
+                                                val intent = Intent(this, TuTruyen::class.java)
                                                 startActivity(intent)
                                                 true
                                             }

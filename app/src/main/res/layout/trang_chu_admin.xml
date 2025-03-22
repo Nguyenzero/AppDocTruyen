@@ -9,44 +9,44 @@
                 android:layout_marginTop="20dp">
 
                 <!-- Main content -->
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
 
-                    <!-- Button to open menu -->
-                    <ImageButton
-                        android:id="@+id/btnOpenMenu"
-                        android:layout_width="75dp"
-                        android:layout_height="60dp"
-                        android:background="?attr/selectableItemBackground"
-                        android:padding="12dp"
-                        android:src="@drawable/menu"
-                        android:layout_margin="16dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:contentDescription="Mở menu"
-                        />
+    <!-- Navigation Drawer -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-                    <!-- Title -->
-                    <TextView
-                        android:layout_width="123dp"
-                        android:layout_height="23dp"
-                        android:layout_marginStart="32dp"
-                        android:layout_marginTop="20dp"
-                        android:text="Trang Admin"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toEndOf="@id/btnOpenMenu"
-                        app:layout_constraintTop_toTopOf="@id/btnOpenMenu" />
+        <!-- Button to open menu -->
+        <ImageButton
+            android:id="@+id/btnOpenMenu"
+            android:layout_width="75dp"
+            android:layout_height="60dp"
+            android:layout_margin="16dp"
+            android:background="?attr/selectableItemBackground"
+            android:contentDescription="Mở menu"
+            android:padding="12dp"
+            android:src="@drawable/menu"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- Title -->
+        <TextView
+            android:layout_width="123dp"
+            android:layout_height="23dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="20dp"
+            android:text="Trang Admin"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/btnOpenMenu"
+            app:layout_constraintTop_toTopOf="@id/btnOpenMenu" />
 
-                <!-- Navigation Drawer -->
-                <com.google.android.material.navigation.NavigationView
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
                     android:id="@+id/nav_view"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="start"
                     app:menu="@menu/admin_menu" />
 
-            </androidx.drawerlayout.widget.DrawerLayout>
+    </androidx.drawerlayout.widget.DrawerLayout>

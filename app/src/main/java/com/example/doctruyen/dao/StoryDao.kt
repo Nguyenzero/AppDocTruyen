@@ -28,4 +28,6 @@ interface StoryDao {
  @Query("SELECT * FROM stories ORDER BY id DESC LIMIT 1")
  fun getLatestStory(): Flow<Story>
 
+    @Query("SELECT coverImage FROM stories")
+    fun getAllBannerImages(): Flow<List<String>>
 }
