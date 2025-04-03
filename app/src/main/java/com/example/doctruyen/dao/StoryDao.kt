@@ -14,7 +14,7 @@ interface StoryDao {
     suspend fun insertStory(story: Story)
 
     @Query("SELECT * FROM stories")
-    fun getAllStories(): Flow<List<Story>>  // Sửa List -> Flow để dùng collect
+    fun getAllStories(): Flow<List<Story>>
 
     @Query("SELECT * FROM stories WHERE id = :storyId")
     suspend fun getStoryById(storyId: Int): Story?
@@ -22,12 +22,16 @@ interface StoryDao {
     @Query("DELETE FROM stories WHERE id = :storyId")
     suspend fun deleteStory(storyId: Int)  // Thêm hàm xóa truyện
 
- @Query("SELECT coverImage FROM stories LIMIT 7")
- fun getLimitedStoryImages(): Flow<List<String>>
+
 
  @Query("SELECT * FROM stories ORDER BY id DESC LIMIT 1")
  fun getLatestStory(): Flow<Story>
 
-    @Query("SELECT coverImage FROM stories")
-    fun getAllBannerImages(): Flow<List<String>>
+    @Query("SELECT * FROM stories ORDER BY id DESC")
+    fun getAllStoriesNewestFirst(): Flow<List<Story>>
+
+
+
+
+
 }

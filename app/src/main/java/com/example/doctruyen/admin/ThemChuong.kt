@@ -2,8 +2,10 @@ package com.example.doctruyen.admin
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -38,6 +40,11 @@ class ThemChuong : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.them_chuong)
 
+        val rootView = findViewById<View>(R.id.themchuong) // Thay rootView bằng ID của LinearLayout gốc
+        rootView.setOnApplyWindowInsetsListener { v, insets ->
+            v.setPadding(0, insets.systemWindowInsetTop, 0, 0) // Đẩy nội dung xuống dưới
+            insets
+        }
         db = AppDatabase.getDatabase(this)
 
         tvTenTruyen = findViewById(R.id.tvTenTruyen)
@@ -45,6 +52,12 @@ class ThemChuong : AppCompatActivity() {
         imgCover = findViewById(R.id.imgCover)
         rvDanhSachChuong = findViewById(R.id.rvDanhSachChuong)
         btnThemChuong = findViewById(R.id.btnThemChuong)
+
+
+        val btnBack = findViewById<ImageButton>(R.id.btnBack)
+        btnBack.setOnClickListener {
+            finish()
+        }
 
 
         // Nhận dữ liệu từ QuanLyTruyen

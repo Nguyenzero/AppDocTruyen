@@ -1,22 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:id="@+id/thongtintruyen"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Thanh tiêu đề -->
+
+
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@android:color/transparent"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+
+
+    </androidx.appcompat.widget.Toolbar>
 
     <com.google.android.material.appbar.CollapsingToolbarLayout
         android:layout_width="match_parent"
         android:layout_height="290dp"
         app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+
 
         <!-- Ảnh nền -->
         <ImageView
@@ -25,96 +34,126 @@
             android:layout_height="match_parent"
             android:scaleType="centerCrop" />
 
+
         <!-- Lớp phủ -->
         <View
             android:layout_width="match_parent"
-            android:layout_height="290dp"
+            android:layout_height="match_parent"
             android:background="#E6000000" /> <!-- Màu đen 90% -->
+
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="48dp"
+            android:layout_height="40dp"
+            android:contentDescription="Quay lại"
+            android:background="?attr/selectableItemBackground"
+            android:src="@drawable/ic_arrow_back_white"
+            android:layout_marginTop="40dp"
+             />
 
         <!-- Thông tin truyện -->
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="218dp"
-            android:layout_marginTop="70dp"
-            android:orientation="horizontal"
-            android:padding="16dp">
-
-            <ImageView
-                android:id="@+id/bookCover"
-                android:layout_width="109dp"
-                android:layout_height="173dp"
-                android:scaleType="centerCrop" />
+        android:layout_width="match_parent"
+        android:layout_height="218dp"
+        android:layout_marginTop="70dp"
+        android:orientation="horizontal"
+        android:padding="16dp">
 
             <LinearLayout
-                android:layout_width="258dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="109dp"
+                    android:layout_height="173dp"
+                    app:cardCornerRadius="16dp">
+
+                <ImageView
+            android:id="@+id/bookCover"
+            android:layout_width="109dp"
+            android:layout_height="173dp"
+            android:scaleType="centerCrop" />
+
+            </androidx.cardview.widget.CardView>
+           </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="258dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/bookTitle"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Tên Truyện"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/bookAuthor"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:orientation="vertical">
+                android:text="Tác giả: ..."
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/txtTheLoai"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Thể loại: ..."
+                android:textColor="@color/white"/>
+
+            <!-- Hiển thị ngôi sao và số sao -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+
+                <ImageView
+                    android:id="@+id/imgStar"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/star"
+                    />
 
                 <TextView
-                    android:id="@+id/bookTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="56dp"
-                    android:text="Tên Truyện"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/bookAuthor"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Tác giả: ..." />
-
-                <TextView
-                    android:id="@+id/txtTheLoai"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Thể loại: ..." />
-
-                <!-- Hiển thị ngôi sao và số sao -->
-                <LinearLayout
+                    android:id="@+id/txtRating"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="4dp">
-
-                    <ImageView
-                        android:id="@+id/imgStar"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                         />
-
-                    <TextView
-                        android:id="@+id/txtRating"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:text="4.5"
-                        android:textSize="16sp"
-                        android:textColor="@android:color/black"
-                        android:textStyle="bold"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <Button
-                        android:id="@+id/btnRead"
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:paddingHorizontal="16dp"
-                        android:text="Đọc truyện"
-                        android:layout_marginTop="10dp"/>
-
-                    <ImageButton
-                        android:id="@+id/btnAddToLibrary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@android:color/transparent" />
-                </LinearLayout>
+                    android:layout_marginStart="4dp"
+                    android:text="4.5"
+                    android:textSize="16sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    />
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnRead"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:paddingHorizontal="16dp"
+                    android:text="Đọc truyện"
+                    android:layout_marginTop="10dp"/>
+
+                <ImageButton
+                    android:id="@+id/btnAddToLibrary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent" />
+            </LinearLayout>
+        </LinearLayout>
         </LinearLayout>
     </com.google.android.material.appbar.CollapsingToolbarLayout>
 

@@ -8,8 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.doctruyen.R
 import com.example.doctruyen.entity.Chapter
 
-class ChuongAdapter(private var chuongList: List<Chapter>) :
-    RecyclerView.Adapter<ChuongAdapter.ChuongViewHolder>() {
+class ChuongAdapter(
+    private var chuongList: List<Chapter>,
+    private val onItemClick: (Chapter) -> Unit
+) : RecyclerView.Adapter<ChuongAdapter.ChuongViewHolder>() {
 
     class ChuongViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvChuong: TextView = itemView.findViewById(R.id.tvChuong)
@@ -24,6 +26,11 @@ class ChuongAdapter(private var chuongList: List<Chapter>) :
     override fun onBindViewHolder(holder: ChuongViewHolder, position: Int) {
         val chapter = chuongList[position]
         holder.tvChuong.text = "Chương ${chapter.chapterNumber}: ${chapter.title}"
+
+        // Bắt sự kiện khi bấm vào item
+        holder.itemView.setOnClickListener {
+            onItemClick(chapter)
+        }
     }
 
     override fun getItemCount(): Int = chuongList.size
@@ -33,6 +40,7 @@ class ChuongAdapter(private var chuongList: List<Chapter>) :
         notifyDataSetChanged()
     }
 }
+
 
 
 

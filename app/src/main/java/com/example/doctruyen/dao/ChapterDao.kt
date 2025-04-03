@@ -21,6 +21,11 @@ interface ChapterDao {
     @Query("SELECT COUNT(*) FROM chapters WHERE storyId = :storyId")
     suspend fun getChapterCountByStoryId(storyId: Int): Int
 
+    @Query("SELECT * FROM chapters WHERE id = :chapterId")
+    fun getChapterById(chapterId: Int): Chapter
+
+    @Query("SELECT id FROM chapters WHERE storyId = :storyId ORDER BY chapterNumber ASC LIMIT 1")
+    suspend fun getFirstChapterId(storyId: Int): Int?
 
 
 }

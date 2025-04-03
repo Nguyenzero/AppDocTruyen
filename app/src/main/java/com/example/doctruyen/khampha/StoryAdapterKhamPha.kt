@@ -4,6 +4,8 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -12,13 +14,17 @@ import com.example.doctruyen.R
 import com.example.doctruyen.entity.Story
 import com.example.doctruyen.thongtintruyen.ChiTietTruyen
 
+
+
 class StoryAdapterKhamPha(private var stories: List<Story>) :
     RecyclerView.Adapter<StoryAdapterKhamPha.StoryViewHolder>() {
 
-    class StoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class StoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imgTruyen: ImageView = itemView.findViewById(R.id.imgTruyen)
         val tvTenTruyen: TextView = itemView.findViewById(R.id.tvTenTruyen)
         val tvTheLoai: TextView = itemView.findViewById(R.id.tvTheLoai)
+
+//        val btnDoc: Button = itemView.findViewById(R.id.btnDoc)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StoryViewHolder {
@@ -31,14 +37,15 @@ class StoryAdapterKhamPha(private var stories: List<Story>) :
 
         // Hiển thị ảnh, tên truyện, thể loại
         Glide.with(holder.itemView.context)
-            .load(story.coverImage) // Ảnh lấy từ Room Database
+            .load(story.coverImage)
             .placeholder(R.drawable.kham_pha)
             .error(R.drawable.kham_pha)
             .into(holder.imgTruyen)
+
         holder.tvTenTruyen.text = story.title
         holder.tvTheLoai.text = story.genre
 
-        // Bắt sự kiện click vào truyện
+        // Sự kiện click vào item
         holder.itemView.setOnClickListener {
             val context = holder.itemView.context
             val intent = Intent(context, ChiTietTruyen::class.java).apply {
@@ -48,13 +55,13 @@ class StoryAdapterKhamPha(private var stories: List<Story>) :
                 putExtra("THE_LOAI", story.genre ?: "Chưa có thể loại")
                 putExtra("HINH_ANH", story.coverImage ?: "")
                 putExtra("DESCRIPTION", story.description)
-
-
             }
             context.startActivity(intent)
         }
-    }
 
+
+
+    }
     override fun getItemCount(): Int = stories.size
 
     fun updateData(newStories: List<Story>) {
@@ -62,3 +69,4 @@ class StoryAdapterKhamPha(private var stories: List<Story>) :
         notifyDataSetChanged()
     }
 }
+

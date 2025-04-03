@@ -3,6 +3,7 @@ package com.example.doctruyen.taikhoan
                             import android.content.Intent
                             import android.content.SharedPreferences
                             import android.os.Bundle
+                            import android.view.View
                             import android.widget.LinearLayout
                             import android.widget.TextView
                             import androidx.appcompat.app.AppCompatActivity
@@ -18,6 +19,12 @@ package com.example.doctruyen.taikhoan
                                 override fun onCreate(savedInstanceState: Bundle?) {
                                     super.onCreate(savedInstanceState)
                                     setContentView(R.layout.taikhoan)
+
+                                    val rootView = findViewById<View>(R.id.taikhoan) // Thay rootView bằng ID của LinearLayout gốc
+                                    rootView.setOnApplyWindowInsetsListener { v, insets ->
+                                        v.setPadding(0, insets.systemWindowInsetTop, 0, 0) // Đẩy nội dung xuống dưới
+                                        insets
+                                    }
 
                                     val txtUserName = findViewById<TextView>(R.id.txtUserName)
                                     val txtNotificationBadge = findViewById<TextView>(R.id.txtNotificationBadge)
@@ -59,7 +66,7 @@ package com.example.doctruyen.taikhoan
                                                 startActivity(intent)
                                                 true
                                             }
-                                            R.id.nav_tai_khoan -> {
+                                            R.id.nav_tu_truyen -> {
                                                 val intent = Intent(this, TuTruyen::class.java)
                                                 startActivity(intent)
                                                 true

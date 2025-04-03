@@ -5,6 +5,7 @@ package com.example.doctruyen.admin
             import android.os.Bundle
             import android.view.Gravity
             import android.view.MenuItem
+            import android.view.View
             import android.widget.ImageButton
             import androidx.appcompat.app.AppCompatActivity
             import androidx.drawerlayout.widget.DrawerLayout
@@ -17,8 +18,16 @@ package com.example.doctruyen.admin
                     super.onCreate(savedInstanceState)
                     setContentView(R.layout.trang_chu_admin)
 
+
+                    val rootView = findViewById<View>(R.id.adminLayout) // Thay rootView bằng ID của LinearLayout gốc
+                    rootView.setOnApplyWindowInsetsListener { v, insets ->
+                        v.setPadding(0, insets.systemWindowInsetTop, 0, 0) // Đẩy nội dung xuống dưới
+                        insets
+                    }
+
                     val drawerLayout = findViewById<DrawerLayout>(R.id.drawer_layout)
                     val btnOpenMenu = findViewById<ImageButton>(R.id.btnOpenMenu)
+
                     val navView = findViewById<NavigationView>(R.id.nav_view)
 
                     btnOpenMenu.setOnClickListener {

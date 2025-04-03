@@ -1,5 +1,6 @@
 package com.example.doctruyen.thongtintruyen
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
 import com.example.doctruyen.R
 import com.example.doctruyen.database.AppDatabase
+import com.example.doctruyen.doctruyen.ReadStory
 import com.example.doctruyen.entity.Chapter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -44,7 +46,13 @@ class DanhSachChuongFragment : Fragment() {
         tvTongSoChuong = view.findViewById(R.id.tvTongSoChuong)
         btnSapXep = view.findViewById(R.id.btnSapXep)
 
-        chuongAdapter = ChuongAdapter(emptyList())
+        // Khởi tạo adapter với danh sách rỗng
+        chuongAdapter = ChuongAdapter(emptyList()) { chapter ->
+            Log.d("DanhSachChuongFragment", "Chương được chọn: ID = ${chapter.id}") // In log để kiểm tra ID
+            val intent = Intent(requireContext(), ReadStory::class.java)
+            intent.putExtra("CHUONG_ID", chapter.id)
+            startActivity(intent)
+        }
         recyclerView.adapter = chuongAdapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
@@ -67,7 +75,6 @@ class DanhSachChuongFragment : Fragment() {
         if (truyenId == -1) return
 
         lifecycleScope.launch(Dispatchers.IO) {
-
             danhSachChuong = database.chapterDao().getChaptersByStoryId(truyenId).toMutableList()
 
             withContext(Dispatchers.Main) {
@@ -79,21 +86,16 @@ class DanhSachChuongFragment : Fragment() {
     }
 
     private fun capNhatDanhSach() {
-
         danhSachChuong = if (isAscending) {
             danhSachChuong.sortedBy { it.id }.toMutableList()
         } else {
             danhSachChuong.sortedByDescending { it.id }.toMutableList()
         }
 
-
         chuongAdapter.updateData(danhSachChuong)
-
 
         btnSapXep.setImageResource(if (isAscending) R.drawable.sapxep else R.drawable.sapxep)
     }
-
-
 
     companion object {
         fun newInstance(truyenId: Int) = DanhSachChuongFragment().apply {

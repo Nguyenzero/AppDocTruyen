@@ -11,6 +11,7 @@ data class Story(
     val genre: String, // Thể loại
     val coverImage: String, // Ảnh bìa (đường dẫn ảnh)
     val description: String, // Mô tả nội dung
-    val status: String // Trạng thái (Đang ra, Hoàn thành)
+    val status: String, // Trạng thái (Đang ra, Hoàn thành)
+
 )
 

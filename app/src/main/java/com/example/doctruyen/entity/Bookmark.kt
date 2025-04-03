@@ -16,5 +16,6 @@ data class Bookmark(
     @PrimaryKey(autoGenerate = true) val id: Int = 0, // ID bookmark
     val userId: Int, // ID người dùng
     val storyId: Int, // ID truyện
-    val chapterId: Int // ID chương đang đọc
+    val chapterId: Int // ID của chương đang đọc
 )
+

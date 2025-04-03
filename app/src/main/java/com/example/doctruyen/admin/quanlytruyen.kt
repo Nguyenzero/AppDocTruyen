@@ -3,6 +3,7 @@ package com.example.doctruyen.admin
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
@@ -27,6 +28,11 @@ class quanlytruyen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.quan_ly_truyen)
 
+        val rootView = findViewById<View>(R.id.quanlytruyen) // Thay rootView bằng ID của LinearLayout gốc
+        rootView.setOnApplyWindowInsetsListener { v, insets ->
+            v.setPadding(0, insets.systemWindowInsetTop, 0, 0) // Đẩy nội dung xuống dưới
+            insets
+        }
         recyclerTruyen = findViewById(R.id.recyclerTruyen)
         btnThemTruyen = findViewById(R.id.btnThemTruyen)
         btnBack = findViewById(R.id.btnBack)

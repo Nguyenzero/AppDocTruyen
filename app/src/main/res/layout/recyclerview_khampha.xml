@@ -6,15 +6,18 @@
     android:padding="8dp">
 
     <!-- Hình ảnh truyện -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="16dp">
     <ImageView
         android:id="@+id/imgTruyen"
-        android:layout_width="120dp"
+        android:layout_width="114dp"
         android:layout_height="160dp"
         android:scaleType="centerCrop"
         android:src="@drawable/kham_pha"
-        app:cardCornerRadius="16dp"
-        />
-
+        app:cardCornerRadius="16dp" />
+    </androidx.cardview.widget.CardView>
     <!-- Tên truyện -->
     <TextView
         android:id="@+id/tvTenTruyen"

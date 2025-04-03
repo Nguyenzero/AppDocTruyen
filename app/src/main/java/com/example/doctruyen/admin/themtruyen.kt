@@ -1,6 +1,7 @@
 package com.example.doctruyen.admin
 
 import android.os.Bundle
+import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -28,6 +29,12 @@ class themtruyen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.them_truyen)
 
+        val rootView = findViewById<View>(R.id.themtruyen) // Thay rootView bằng ID của LinearLayout gốc
+        rootView.setOnApplyWindowInsetsListener { v, insets ->
+            v.setPadding(0, insets.systemWindowInsetTop, 0, 0) // Đẩy nội dung xuống dưới
+            insets
+        }
+
         // Ánh xạ View
         imgCover = findViewById(R.id.imgCover)
         edtImageUrl = findViewById(R.id.edtImageUrl)
@@ -39,6 +46,12 @@ class themtruyen : AppCompatActivity() {
         edtMoTa = findViewById(R.id.edtMoTa)
         btnThemTruyen = findViewById(R.id.btnThemTruyen)
 
+
+        val btnBack = findViewById<ImageButton>(R.id.btnBack)
+        btnBack.setOnClickListener {
+            finish()
+        }
+
         // Xử lý tải ảnh từ URL
         btnLoadImage.setOnClickListener {
             val url = edtImageUrl.text.toString().trim()
@@ -49,7 +62,7 @@ class themtruyen : AppCompatActivity() {
             }
         }
 
-        // Xử lý thêm truyện vào Database
+
         btnThemTruyen.setOnClickListener {
             themTruyenVaoDatabase()
         }

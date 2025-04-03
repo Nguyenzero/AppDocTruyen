@@ -2,9 +2,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/rootView">
 
-    <!-- Nội dung có thể cuộn -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -17,7 +17,7 @@
             android:orientation="vertical"
             android:background="@color/white">
 
-            <!-- Thanh tìm kiếm -->
+            <!-- Search -->
             <androidx.appcompat.widget.SearchView
                 android:id="@+id/searchView"
                 android:layout_width="match_parent"
@@ -26,29 +26,51 @@
                 android:iconifiedByDefault="false"
                 android:background="@android:color/white"
                 android:elevation="4dp"
-                android:padding="8dp"
-                android:layout_marginTop="50dp"/>
+                android:padding="8dp" />
 
-            <!-- Banner cuộn ngang -->
+            <!-- Thể loại -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="Thể loại"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerViewBanner"
+                android:id="@+id/recyclerViewTheLoai"
                 android:layout_width="match_parent"
-                android:layout_height="179dp"
-                android:clipToPadding="false"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
                 android:orientation="horizontal"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp" />
+                android:nestedScrollingEnabled="false" />
+
+            <!-- MỚI NHẤT - Phần thêm vào -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="Mới nhất"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
 
+            <!-- Truyện nổi bật -->
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewMoiNhat"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="-3dp"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="false"
+                android:overScrollMode="never"
+                android:layout_marginLeft="5dp"/>
 
 
-            <!-- Khu vực hiển thị thông tin truyện nổi bật -->
-            <include
+            <include layout="@layout/truyen_noi_bat_khampha" />
 
-                layout="@layout/truyen_noi_bat_khampha"/>
-
-            <!-- Danh sách truyện (RecyclerView) -->
-
+            <!-- Đề cử -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -63,17 +85,15 @@
                 android:layout_height="wrap_content"
                 android:nestedScrollingEnabled="false"
                 android:padding="8dp" />
-
         </LinearLayout>
     </ScrollView>
 
-    <!-- Thanh điều hướng nằm dưới cùng và không bị cuộn -->
+    <!-- Bottom Navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?android:attr/windowBackground"
         app:labelVisibilityMode="labeled"
-        app:menu="@menu/bottom_nav_menu"/>
-
+        app:menu="@menu/bottom_nav_menu" />
 </LinearLayout>

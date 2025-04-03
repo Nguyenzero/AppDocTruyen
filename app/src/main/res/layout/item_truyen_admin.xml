@@ -26,16 +26,16 @@
         <TextView
             android:id="@+id/tvTenTruyen"
             android:layout_width="191dp"
-            android:layout_height="35dp"
+            android:layout_height="49dp"
             android:text="Tên truyện"
             android:textSize="16sp"
             android:textStyle="bold" />
 
         <TextView
-            android:layout_marginTop="15dp"
             android:id="@+id/tvTheLoai"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:text="Thể loại"
             android:textColor="@android:color/darker_gray"
             android:textSize="14sp" />
@@ -44,7 +44,7 @@
             android:id="@+id/tvSoChap"
             android:layout_width="127dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+
             android:text="Số chương: 100"
             android:textColor="@android:color/darker_gray"
             android:textSize="14sp" />
