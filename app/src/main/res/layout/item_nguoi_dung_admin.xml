@@ -1,0 +1,50 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp"
+
+    android:layout_marginBottom="10dp">
+
+    <TextView
+        android:id="@+id/txtTenNguoiDung"
+        android:layout_width="386dp"
+        android:layout_height="wrap_content"
+        android:text="Tên người dùng"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtEmail"
+        android:layout_width="386dp"
+        android:layout_height="wrap_content"
+        android:text="email@gmail.com"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/txtRole"
+        android:layout_width="294dp"
+        android:layout_height="wrap_content"
+        android:text="Vai trò"
+        android:textColor="#666" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+        <Button
+            android:id="@+id/btnSua"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chỉnh sửa" />
+
+        <Button
+            android:id="@+id/btnXoa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Xóa"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+</LinearLayout>

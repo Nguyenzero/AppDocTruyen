@@ -33,6 +33,7 @@ class quanlytruyen : AppCompatActivity() {
             v.setPadding(0, insets.systemWindowInsetTop, 0, 0) // Đẩy nội dung xuống dưới
             insets
         }
+
         recyclerTruyen = findViewById(R.id.recyclerTruyen)
         btnThemTruyen = findViewById(R.id.btnThemTruyen)
         btnBack = findViewById(R.id.btnBack)
@@ -42,7 +43,8 @@ class quanlytruyen : AppCompatActivity() {
         adapter = TruyenAdapter(
             emptyList(),
             onItemClick = { story -> goToThemChuong(story) }, // Khi nhấn vào truyện
-            onDelete = { story -> deleteStory(story) }
+            onDelete = { story -> deleteStory(story) },
+            onEdit = { story -> goToThemTruyen(story) } // Xử lý khi nhấn chỉnh sửa
         )
 
         recyclerTruyen.layoutManager = LinearLayoutManager(this)
@@ -59,7 +61,7 @@ class quanlytruyen : AppCompatActivity() {
 
     private fun loadStories() {
         lifecycleScope.launch {
-            db.storyDao().getAllStories().collectLatest { stories ->
+            db.storyDao().getaddStories().collectLatest { stories ->
                 adapter.updateData(stories)
             }
         }
@@ -77,7 +79,17 @@ class quanlytruyen : AppCompatActivity() {
         val intent = Intent(this, ThemChuong::class.java).apply {
             putExtra("storyId", story.id)
             putExtra("storyTitle", story.title)
-                    putExtra("storyCover", story.coverImage)
+            putExtra("storyCover", story.coverImage)
+        }
+        startActivity(intent)
+    }
+
+    private fun goToThemTruyen(story: Story) {
+        Log.d("DEBUG", "Chuyển đến trang chỉnh sửa truyện: ID=${story.id}")
+        val intent = Intent(this, themtruyen::class.java).apply {
+            putExtra("storyId", story.id) // Truyền ID truyện để chỉnh sửa
+            putExtra("storyTitle", story.title) // Truyền tên truyện
+            putExtra("storyCover", story.coverImage) // Truyền ảnh bìa
         }
         startActivity(intent)
     }

@@ -23,17 +23,23 @@ import kotlinx.coroutines.withContext
 
 class DanhSachChuongFragment : Fragment() {
     private var truyenId: Int = -1
+    private var userId: Int = -1
+    private var storyTitle: String = ""
+
     private lateinit var chuongAdapter: ChuongAdapter
     private lateinit var database: AppDatabase
     private lateinit var tvTongSoChuong: TextView
     private lateinit var btnSapXep: ImageButton
     private var danhSachChuong: MutableList<Chapter> = mutableListOf()
-    private var isAscending = true // Mặc định sắp xếp từ A-Z
+    private var isAscending = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             truyenId = it.getInt("TRUYEN_ID", -1)
+            userId = it.getInt("USER_ID", -1)
+            storyTitle = it.getString("STORY_TITLE", "") ?: ""
+            Log.d("DanhSachChuong", "Đã nhận: TRUYEN_ID = $truyenId, USER_ID = $userId, STORY_TITLE = $storyTitle")
         }
     }
 
@@ -46,26 +52,42 @@ class DanhSachChuongFragment : Fragment() {
         tvTongSoChuong = view.findViewById(R.id.tvTongSoChuong)
         btnSapXep = view.findViewById(R.id.btnSapXep)
 
-        // Khởi tạo adapter với danh sách rỗng
+        // Adapter khởi tạo rỗng ban đầu
         chuongAdapter = ChuongAdapter(emptyList()) { chapter ->
-            Log.d("DanhSachChuongFragment", "Chương được chọn: ID = ${chapter.id}") // In log để kiểm tra ID
             val intent = Intent(requireContext(), ReadStory::class.java)
             intent.putExtra("CHUONG_ID", chapter.id)
+            intent.putExtra("USER_ID", userId)
+            intent.putExtra("STORY_ID", truyenId)
+            intent.putExtra("STORY_TITLE", storyTitle)
+            Log.d("DanhSachChuong", "Truyền sang ReadStory: CHUONG_ID = ${chapter.id}, USER_ID = $userId, STORY_ID = $truyenId, STORY_TITLE = $storyTitle")
             startActivity(intent)
+
+            // Tăng lượt xem
+            lifecycleScope.launch(Dispatchers.IO) {
+                val viewDao = database.viewDao()
+                val currentView = viewDao.getUserStoryByStoryId(truyenId)
+
+                if (currentView.isNullOrEmpty()) {
+                    val newView = com.example.doctruyen.entity.View(story_id = truyenId, views = 1)
+                    viewDao.insertUserStory(newView)
+                } else {
+                    viewDao.incrementViews(truyenId)
+                }
+            }
         }
+
         recyclerView.adapter = chuongAdapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        database = Room.databaseBuilder(requireContext(), AppDatabase::class.java, "doctruyen_db")
+        database = Room.databaseBuilder(requireContext(), AppDatabase::class.java, "doctruyen1")
             .fallbackToDestructiveMigration()
             .build()
 
         loadChuongList()
 
-        // Xử lý sự kiện bấm nút sắp xếp
         btnSapXep.setOnClickListener {
-            isAscending = !isAscending // Đảo trạng thái sắp xếp
-            capNhatDanhSach() // Sắp xếp lại danh sách
+            isAscending = !isAscending
+            capNhatDanhSach()
         }
 
         return view
@@ -78,9 +100,8 @@ class DanhSachChuongFragment : Fragment() {
             danhSachChuong = database.chapterDao().getChaptersByStoryId(truyenId).toMutableList()
 
             withContext(Dispatchers.Main) {
-                // Hiển thị tổng số chương
                 tvTongSoChuong.text = "Số chương (${danhSachChuong.size})"
-                capNhatDanhSach() // Hiển thị danh sách theo thứ tự mặc định (A-Z)
+                capNhatDanhSach()
             }
         }
     }
@@ -93,14 +114,15 @@ class DanhSachChuongFragment : Fragment() {
         }
 
         chuongAdapter.updateData(danhSachChuong)
-
         btnSapXep.setImageResource(if (isAscending) R.drawable.sapxep else R.drawable.sapxep)
     }
 
     companion object {
-        fun newInstance(truyenId: Int) = DanhSachChuongFragment().apply {
+        fun newInstance(truyenId: Int, userId: Int, storyTitle: String) = DanhSachChuongFragment().apply {
             arguments = Bundle().apply {
                 putInt("TRUYEN_ID", truyenId)
+                putInt("USER_ID", userId)
+                putString("STORY_TITLE", storyTitle)
             }
         }
     }

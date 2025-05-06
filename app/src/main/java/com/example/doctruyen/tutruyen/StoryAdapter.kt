@@ -1,5 +1,6 @@
 package com.example.doctruyen.tutruyen
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,10 +25,12 @@ class StoryAdapter(
 ) : RecyclerView.Adapter<StoryAdapter.StoryViewHolder>() {
 
     fun updateData(newStories: List<Story>) {
+        Log.d("StoryAdapter", "Cập nhật ${newStories.size} truyện vào adapter")
         storyList.clear()
         storyList.addAll(newStories)
         notifyDataSetChanged()
     }
+
 
     class StoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imgStory: ImageView = itemView.findViewById(R.id.imgStory)
@@ -43,6 +46,7 @@ class StoryAdapter(
 
     override fun onBindViewHolder(holder: StoryViewHolder, position: Int) {
         val story = storyList[position]
+        Log.d("StoryAdapter", "Bind truyện: ${story.title}")
         holder.tvTitle.text = story.title
 
         holder.btnMoreOptions.setOnClickListener { view ->

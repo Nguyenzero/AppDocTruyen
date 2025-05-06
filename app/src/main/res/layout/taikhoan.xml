@@ -29,27 +29,21 @@
             app:shapeAppearanceOverlay="@style/RoundedImage" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="291dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/txtUserName"
-                android:layout_width="wrap_content"
+                android:layout_width="272dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:text="Tên tài khoản"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/txtNotificationBadge"
-                android:layout_width="125dp"
-                android:layout_height="wrap_content"
 
-                android:gravity="center"
-                android:textSize="12sp"
-                android:visibility="visible" />
         </LinearLayout>
     </LinearLayout>
 
@@ -95,7 +89,7 @@
 
             <!-- Lịch sử giao dịch -->
             <LinearLayout
-                android:id="@+id/btnTransactionHistory"
+                android:id="@+id/btnDoiMatKhau"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="16dp"
@@ -106,7 +100,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Lịch sử giao dịch"
+                    android:text="Đôi mật khẩu"
                     android:textSize="16sp"/>
             </LinearLayout>
 
@@ -171,5 +165,8 @@
         android:background="?android:attr/windowBackground"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/bottom_nav_menu"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:itemBackground="@color/white"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

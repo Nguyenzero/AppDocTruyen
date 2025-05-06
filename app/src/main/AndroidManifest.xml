@@ -26,7 +26,9 @@
 
         <!-- Màn hình đăng ký -->
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".tutruyen.TuTruyen" />
+        <activity android:name=".tutruyen.TuTruyen"
+            android:windowSoftInputMode="adjustPan"
+            />
         <activity android:name=".khampha.Khampha" />
         <activity android:name=".taikhoan.taikhoan" />
         <activity android:name=".admin.trangchu_admin" />
@@ -34,7 +36,15 @@
         <activity android:name=".admin.themtruyen"/>
         <activity android:name=".thongtintruyen.ChiTietTruyen"/>
         <activity android:name=".admin.ThemChuong"/>
-        <activity android:name=".doctruyen.ReadStory"/>"/>
+        <activity android:name=".doctruyen.ReadStory"/>
+        <activity android:name=".Ranking.Ranking"/>
+        <activity android:name=".thongtintruyen.DanhGiaMain"/>
+        <activity android:name=".admin.QuanLyNguoiDung"/>
+        <activity android:name=".taikhoan.ThongTinTaiKhoan"/>
+        <activity android:name=".taikhoan.DoiMatKhau"/>
+        <activity android:name=".admin.DanhSachTruyenDanhGia"/>
+        <activity android:name=".admin.ChiTietDanhGiaActivity"/>
+        <activity android:name=".doctruyen.ListenStoryActivity"/>
 
 
 

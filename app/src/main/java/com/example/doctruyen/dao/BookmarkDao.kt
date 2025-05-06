@@ -36,6 +36,14 @@ interface BookmarkDao {
         LIMIT 1
     """)
     suspend fun getLastReadChapterNumber(userId: Int, storyId: Int): Int?
+
+    @Query("""
+    SELECT stories.* FROM stories 
+    INNER JOIN bookmarks ON stories.id = bookmarks.storyId 
+    WHERE bookmarks.userId = :userId
+""")
+    suspend fun getBookmarkedStories(userId: Int): List<Story>
+
 }
 
 

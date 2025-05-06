@@ -33,9 +33,9 @@
 
         <TextView
             android:id="@+id/tvTheLoai"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
+            android:layout_width="192dp"
+            android:layout_height="31dp"
+            android:ellipsize="end"
             android:text="Thể loại"
             android:textColor="@android:color/darker_gray"
             android:textSize="14sp" />

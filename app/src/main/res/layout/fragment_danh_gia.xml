@@ -1,28 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:background="#FAFAFA">
 
-    <EditText
-        android:id="@+id/edtDanhGia"
+    <!-- Hàng tiêu đề và lọc -->
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nhập đánh giá..."
-        android:background="@android:drawable/edit_text" />
+        android:layout_margin="8dp"
+        android:elevation="4dp"
+        app:cardCornerRadius="12dp"
+        android:backgroundTint="#FFFFFF">
 
-    <Button
-        android:id="@+id/btnGuiDanhGia"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Gửi đánh giá"
-        android:layout_gravity="end"
-        android:layout_marginTop="8dp" /> <!-- Sửa lỗi ở đây -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="12dp"
+            android:gravity="center_vertical"
+            android:weightSum="1">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvDanhGia"
+            <!-- Text: Đánh giá -->
+            <TextView
+                android:id="@+id/tvSoDanhGia"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:text="Đánh giá (2)"
+                android:textColor="#212121"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- Nút lọc -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:gravity="end"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnMoi"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:text="Mới"
+                    android:textColor="#757575"
+                    app:strokeColor="#BDBDBD"
+                    app:strokeWidth="1dp"
+                    app:cornerRadius="12dp"
+                    android:textSize="14sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCu"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="8dp"
+                    android:text="Cũ"
+                    android:textColor="#757575"
+                    app:strokeColor="#BDBDBD"
+                    app:strokeWidth="1dp"
+                    app:cornerRadius="12dp"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Danh sách đánh giá và nút thêm -->
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingTop="8dp"/>
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- RecyclerView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerDanhGia"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:clipToPadding="false" />
+
+        <!-- Floating Action Button -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnThemDanhGia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="24dp"
+            android:contentDescription="Viết đánh giá"
+            android:src="@drawable/pen"
+            app:backgroundTint="#1976D2"
+            app:tint="@android:color/white" />
+    </FrameLayout>
 </LinearLayout>

@@ -3,6 +3,7 @@
     <string-array name="trang_thai_truyen">
         <item>Đang ra</item>
         <item>Hoàn thành</item>
+        <item>Tạm dừng</item>
     </string-array>
 
 </resources>

@@ -16,6 +16,7 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
+        val edtUsername = findViewById<EditText>(R.id.edtRegisterUsername)
         val edtEmail = findViewById<EditText>(R.id.edtRegisterEmail)
         val edtPassword = findViewById<EditText>(R.id.edtRegisterPassword)
         val edtConfirmPassword = findViewById<EditText>(R.id.edtConfirmPassword)
@@ -24,11 +25,12 @@ class RegisterActivity : AppCompatActivity() {
         val database = AppDatabase.getDatabase(this)
 
         btnRegister.setOnClickListener {
+            val username = edtUsername.text.toString().trim()
             val email = edtEmail.text.toString().trim()
             val password = edtPassword.text.toString().trim()
             val confirmPassword = edtConfirmPassword.text.toString().trim()
 
-            if (email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+            if (username.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
                 Toast.makeText(this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
@@ -41,7 +43,7 @@ class RegisterActivity : AppCompatActivity() {
             lifecycleScope.launch {
                 val existingUser = database.userDao().getUserByEmail(email)
                 if (existingUser == null) {
-                    val newUser = User(email = email, password = password, role = "user") // Mặc định là "user"
+                    val newUser = User(username = username, email = email, password = password, role = "user")
                     database.userDao().insertUser(newUser)
 
                     runOnUiThread {

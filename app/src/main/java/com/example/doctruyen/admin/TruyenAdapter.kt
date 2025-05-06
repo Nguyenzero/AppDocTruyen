@@ -1,5 +1,6 @@
     package com.example.doctruyen.admin
 
+    import android.content.Intent
     import android.view.LayoutInflater
     import android.view.View
     import android.view.ViewGroup
@@ -20,7 +21,8 @@
     class TruyenAdapter(
         private var listTruyen: List<Story>,
         private val onItemClick: (Story) -> Unit, // Khi nhấn vào truyện
-        private val onDelete: (Story) -> Unit
+        private val onDelete: (Story) -> Unit,
+        private val onEdit: (Story) -> Unit
     ) : RecyclerView.Adapter<TruyenAdapter.TruyenViewHolder>() {
 
         inner class TruyenViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -29,16 +31,14 @@
             val tvTheLoai: TextView = itemView.findViewById(R.id.tvTheLoai)
             val tvSoChap: TextView = itemView.findViewById(R.id.tvSoChap)
             val btnXoa: ImageButton = itemView.findViewById(R.id.btnXoa)
+            val btnChinhSua: ImageButton = itemView.findViewById(R.id.btnChinhSua)
 
             fun bind(truyen: Story) {
                 tvTenTruyen.text = truyen.title
                 tvTheLoai.text = "Thể loại: ${truyen.genre}"
                 Glide.with(itemView).load(truyen.coverImage).into(imgTruyen)
 
-                // Khởi tạo database
                 val db = AppDatabase.getDatabase(itemView.context)
-
-                // Lấy số chương từ database và cập nhật UI
                 CoroutineScope(Dispatchers.IO).launch {
                     val soChuong = db.chapterDao().getChapterCountByStoryId(truyen.id)
                     withContext(Dispatchers.Main) {
@@ -48,6 +48,11 @@
 
                 itemView.setOnClickListener { onItemClick(truyen) }
                 btnXoa.setOnClickListener { onDelete(truyen) }
+                btnChinhSua.setOnClickListener {
+                    val intent = Intent(itemView.context, themtruyen::class.java)
+                    intent.putExtra("story_id", truyen.id)  // Truyền ID truyện
+                    itemView.context.startActivity(intent)
+                }
             }
         }
 
@@ -67,4 +72,5 @@
             notifyDataSetChanged()
         }
     }
+
 

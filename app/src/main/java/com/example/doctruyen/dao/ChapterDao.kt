@@ -15,6 +15,8 @@ interface ChapterDao {
     @Query("SELECT * FROM chapters WHERE storyId = :storyId")
     fun getChaptersByStoryId(storyId: Int): List<Chapter>
 
+
+
     @Delete
     suspend fun deleteChapter(chapter: Chapter)
 

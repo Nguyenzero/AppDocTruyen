@@ -26,8 +26,9 @@
             <!-- Tên truyện -->
             <TextView
                 android:id="@+id/tvTenTruyen"
-                android:layout_width="243dp"
+                android:layout_width="232dp"
                 android:layout_height="wrap_content"
+                android:ellipsize="end"
                 android:text="Đỉnh Cấp Khí Vận, Lặng Lẽ Tu Luyện Ngàn Năm"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -40,15 +41,17 @@
                 android:text="Tiên Hiệp"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="14sp"
-                android:layout_marginTop="8dp"/>
+                android:layout_marginTop="8dp"
+                android:ellipsize="end" />
 
             <!-- Mô tả truyện -->
             <TextView
                 android:id="@+id/tvMoTa"
-                android:layout_width="228dp"
-                android:layout_height="wrap_content"
+                android:layout_width="200dp"
+                android:layout_height="65dp"
                 android:ellipsize="end"
                 android:maxLines="2"
+
                 android:paddingTop="4dp"
                 android:text="Mô tả truyện ở đây..."
                 android:textColor="@android:color/darker_gray"
@@ -61,7 +64,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="30dp"
                 >
 
                 <ImageView
@@ -69,18 +71,18 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/star"
+                    android:layout_marginTop="10dp"
                     />
 
                 <TextView
                     android:id="@+id/txtRating"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginStart="4dp"
                     android:text="4.5"
                     android:textSize="16sp"
-
-                    android:textStyle="bold"
-                    />
+                    android:layout_marginTop="9dp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout

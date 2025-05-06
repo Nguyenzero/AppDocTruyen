@@ -142,6 +142,68 @@ class ThemChuong : AppCompatActivity() {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
-    private fun editChuong(chapter: Chapter) { /* Xử lý chỉnh sửa chương */ }
-    private fun deleteChuong(chapter: Chapter) { /* Xử lý xóa chương */ }
+    private fun editChuong(chapter: Chapter) {
+        val bottomSheetDialog = BottomSheetDialog(this)
+        val view = layoutInflater.inflate(R.layout.bottomsheet_them_chuong, null)
+
+        val edtTitle = view.findViewById<EditText>(R.id.edtTitle)
+        val edtContent = view.findViewById<EditText>(R.id.edtContent)
+        val btnLuuChuong = view.findViewById<Button>(R.id.btnLuuChuong)
+
+        // Gán dữ liệu chương vào EditText
+        edtTitle.setText(chapter.title)
+        edtContent.setText(chapter.content)
+
+        btnLuuChuong.text = "Cập nhật chương" // Đổi text cho rõ ràng
+
+        btnLuuChuong.setOnClickListener {
+            val newTitle = edtTitle.text.toString().trim()
+            val newContent = edtContent.text.toString().trim()
+
+            if (newTitle.isNotEmpty() && newContent.isNotEmpty()) {
+                val updatedChapter = chapter.copy(
+                    title = newTitle,
+                    content = newContent
+                )
+
+                lifecycleScope.launch {
+                    db.chapterDao().insertChapter(updatedChapter) // Vì dùng OnConflictStrategy.REPLACE nên sẽ update
+                    loadDanhSachChuong()
+                    showToast("Cập nhật chương thành công!")
+                    bottomSheetDialog.dismiss()
+                }
+            } else {
+                showToast("Vui lòng nhập đầy đủ thông tin!")
+            }
+        }
+
+        bottomSheetDialog.setContentView(view)
+        bottomSheetDialog.show()
+    }
+
+    private fun deleteChuong(chapter: Chapter) {
+        val builder = android.app.AlertDialog.Builder(this)
+        builder.setTitle("Xác nhận xóa chương")
+        builder.setMessage("Bạn có chắc muốn xóa chương '${chapter.title}' không?")
+
+        builder.setPositiveButton("Xóa") { dialog, _ ->
+            lifecycleScope.launch(Dispatchers.IO) {
+                db.chapterDao().deleteChapter(chapter)
+
+                withContext(Dispatchers.Main) {
+                    showToast("Đã xóa chương thành công!")
+                    loadDanhSachChuong()
+                }
+            }
+            dialog.dismiss()
+        }
+
+        builder.setNegativeButton("Hủy") { dialog, _ ->
+            dialog.dismiss()
+        }
+
+        val dialog = builder.create()
+        dialog.show()
+    }
+
 }

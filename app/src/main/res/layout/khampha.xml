@@ -68,7 +68,12 @@
                 android:layout_marginLeft="5dp"/>
 
 
-            <include layout="@layout/truyen_noi_bat_khampha" />
+            <include
+                android:id="@+id/includeRating"
+                layout="@layout/truyen_noi_bat_khampha"/>
+
+
+
 
             <!-- Đề cử -->
             <TextView
@@ -95,5 +100,6 @@
         android:layout_height="wrap_content"
         android:background="?android:attr/windowBackground"
         app:labelVisibilityMode="labeled"
-        app:menu="@menu/bottom_nav_menu" />
+        app:menu="@menu/bottom_nav_menu"
+        app:itemBackground="@color/white"/>
 </LinearLayout>

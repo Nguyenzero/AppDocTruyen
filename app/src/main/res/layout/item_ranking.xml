@@ -1,0 +1,91 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:background="#F5F5F5">
+
+    <!-- CardView để bo góc hình ảnh -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="85dp"
+        android:layout_height="102dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp">
+
+        <ImageView
+            android:id="@+id/imgCover"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Thông tin truyện -->
+    <LinearLayout
+        android:layout_width="262dp"
+        android:layout_height="108dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingStart="8dp">
+
+        <!-- Thể loại -->
+        <TextView
+            android:id="@+id/tvCategory"
+            android:layout_width="158dp"
+            android:layout_height="wrap_content"
+            android:text="#THỂ LOẠI"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="12sp" />
+
+        <!-- Tên truyện -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="293dp"
+            android:layout_height="39dp"
+            android:text="Tên Truyện"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- Tác giả -->
+        <TextView
+            android:id="@+id/tvAuthor"
+            android:layout_width="202dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:text="Tác giả"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp" />
+
+        <!-- Đánh giá và lượt xem -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+
+
+
+
+        <!-- Ngôi sao -->
+
+
+
+            <TextView
+                android:id="@+id/tvRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 5.0"
+                android:textSize="14sp"
+                android:layout_marginTop="1dp"/>
+
+            <TextView
+                android:id="@+id/tvViews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="8dp"
+                android:text="| 1000"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

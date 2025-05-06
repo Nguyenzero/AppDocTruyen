@@ -22,8 +22,9 @@
     <TextView
         android:id="@+id/tvTenTruyen"
         android:layout_width="124dp"
-        android:layout_height="38dp"
+        android:layout_height="33dp"
         android:layout_marginTop="4dp"
+        android:ellipsize="end"
         android:text="Tên Truyện"
         android:textSize="14sp"
         android:textStyle="bold" />
@@ -35,5 +36,6 @@
         android:layout_height="wrap_content"
         android:text="Thể loại"
         android:textColor="@android:color/darker_gray"
-        android:textSize="12sp" />
+        android:textSize="12sp"
+        android:ellipsize="end" />
 </LinearLayout>

@@ -46,19 +46,35 @@ package com.example.doctruyen.admin
                         R.id.nav_logout -> {
                             logout()
                         }
-                        // Handle other menu items if needed
+                       R.id.nav_manage_users-> {
+                           val  intent = Intent(this, QuanLyNguoiDung::class.java)
+                            startActivity(intent)
+                       }
+                        R.id.nav_danhgia -> {
+                            val intent = Intent(this, DanhSachTruyenDanhGia::class.java)
+                            startActivity(intent)
+                        }
+
+//                        R.id.nav_my_stories -> {
+//                            val intent = Intent(this, TuTruyen::class.java)
+//                            startActivity(intent)
+//                        }
+//                        R.id.nav_ranking -> {
+//                            val intent = Intent(this, Ranking::class.java)
+//                            startActivity(intent)
+//                        }
                     }
                     return true
                 }
 
                 private fun logout() {
-                    // Clear user data from SharedPreferences
+
                     val sharedPreferences: SharedPreferences = getSharedPreferences("UserData", MODE_PRIVATE)
                     val editor = sharedPreferences.edit()
                     editor.clear()
                     editor.apply()
 
-                    // Navigate back to the login page
+
                     val intent = Intent(this, LoginActivity::class.java)
                     startActivity(intent)
                     finish()

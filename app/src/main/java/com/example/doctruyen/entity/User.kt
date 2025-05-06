@@ -8,5 +8,6 @@ data class User(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val email: String,
     val password: String,
-    val role: String = "user" // Mặc định đăng ký là "user"
+    val role: String, // Thêm cột vai trò
+    val username: String // Thêm cột tên người dùng
 )

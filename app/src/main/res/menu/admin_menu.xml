@@ -22,8 +22,8 @@
         android:title="Thống kê và báo cáo" />
 
     <item
-        android:id="@+id/nav_settings"
-        android:title="Cài đặt hệ thống" />
+        android:id="@+id/nav_danhgia"
+        android:title="Quản Lý Đánh Giá" />
 
     <item
         android:id="@+id/nav_logout"

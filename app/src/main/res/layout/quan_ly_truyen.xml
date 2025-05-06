@@ -1,9 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/quanlytruyen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="8dp"
-    android:id="@+id/quanlytruyen">
+    android:background="@android:color/white"
+    android:padding="16dp">
 
     <!-- Thanh công cụ chứa nút trở về và thanh tìm kiếm -->
     <LinearLayout
@@ -11,8 +14,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:paddingVertical="10dp"
-       >
+        android:layout_marginBottom="12dp">
 
         <!-- Nút trở về -->
         <ImageView
@@ -22,19 +24,20 @@
             android:src="@drawable/arrow"
             android:padding="8dp"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="Quay lại"/>
+            android:contentDescription="Quay lại"
+             />
 
         <!-- Thanh tìm kiếm -->
         <androidx.appcompat.widget.SearchView
             android:id="@+id/searchView"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:queryHint="Tìm kiếm truyện..."
             android:iconifiedByDefault="false"
-            android:background="@android:color/white"
-            android:elevation="4dp"
-            android:padding="8dp"/>
+            android:background="@drawable/bg_searchview"
+            android:elevation="2dp"
+            android:layout_marginStart="12dp" />
     </LinearLayout>
 
     <!-- Nút Thêm Truyện -->
@@ -43,16 +46,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Thêm Truyện"
-        android:layout_gravity="end"
-        android:backgroundTint="@color/black"
+        android:textAllCaps="false"
+        android:textStyle="bold"
         android:textColor="@android:color/white"
-        android:padding="10dp"
-        android:layout_marginTop="10dp"/>
+        android:backgroundTint="@color/blue"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
+        android:layout_gravity="end"
+        android:layout_marginBottom="12dp"
+        android:elevation="2dp" />
 
     <!-- Danh sách Truyện -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerTruyen"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingBottom="16dp"
+        android:layout_marginTop="4dp" />
+
 </LinearLayout>
