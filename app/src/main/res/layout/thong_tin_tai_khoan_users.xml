@@ -82,12 +82,12 @@
                 android:id="@+id/btnEditInfo"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="Lưu thông tin"
-                android:textColor="#FFFFFF"
                 android:layout_marginTop="32dp"
-                android:backgroundTint="@color/black"
                 android:background="@drawable/bg_edit_button"
-                android:elevation="4dp" />
+                android:backgroundTint="@color/black"
+                android:elevation="4dp"
+                android:text="Lưu thông tin"
+                android:textColor="#FFFFFF" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

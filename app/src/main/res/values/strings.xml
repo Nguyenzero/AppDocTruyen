@@ -6,4 +6,28 @@
         <item>Tạm dừng</item>
     </string-array>
 
+
+    <string-array name="tac_gia_array">
+        <item>Tác giả</item>
+        <item>Guiltythree</item>
+        <item>Kim Nhật Vấn Đạo</item>
+        <item>Mộng Trung Bút Chủ</item>
+        <!-- thêm các tác giả khác -->
+    </string-array>
+
+    <string-array name="the_loai_array">
+        <item>Thể loại</item>
+        <item>Kỳ Ảo</item>
+        <item>Huyền Huyễn</item>
+        <item>Đô Thị</item>
+        <item>Tiên Hiệp</item>
+    </string-array>
+
+    <string-array name="tinh_trang_array">
+        <item>Tình trạng</item>
+        <item>Hoàn thành</item>
+        <item>Chưa hoàn thành</item>
+    </string-array>
+
+
 </resources>

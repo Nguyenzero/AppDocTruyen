@@ -2,6 +2,7 @@ package com.example.doctruyen.admin
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -29,7 +30,11 @@ class DanhSachTruyenDanhGia : AppCompatActivity() {
             intent.putExtra("story_id", story.id)
             startActivity(intent)
         }
+        val btnBack = findViewById<ImageButton>(R.id.btnBack)
 
+        btnBack.setOnClickListener {
+            finish()
+        }
         viewModel = ViewModelProvider(this).get(TruyenDanhGiaViewModel::class.java)
 
         viewModel.listStoryWithReview.observe(this) { list ->

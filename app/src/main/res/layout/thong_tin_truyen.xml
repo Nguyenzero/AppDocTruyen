@@ -92,24 +92,31 @@
                 android:id="@+id/bookTitle"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
+                android:ellipsize="end"
+                android:maxLines="2"
                 android:text="Tên Truyện"
+                android:textColor="@color/white"
                 android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/white"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/bookAuthor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Tác giả: ..."
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:maxLines="1"
+                android:ellipsize="end"
+                />
 
             <TextView
                 android:id="@+id/txtTheLoai"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Thể loại: ..."
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:maxLines="1"
+                android:ellipsize="end"/>
 
             <!-- Hiển thị ngôi sao và số sao -->
             <LinearLayout

@@ -17,11 +17,22 @@
         @Update
         suspend fun updateStory(story: Story)
 
+        @Query("SELECT * FROM stories WHERE title LIKE :query")
+        fun searchStoriesByTitle(query: String): kotlinx.coroutines.flow.Flow<List<Story>>
+
 
         @Query("SELECT * FROM stories")
         fun getAllStories(): Flow<List<Story>>
 
 
+        @Query("SELECT DISTINCT genre FROM stories")
+        fun getAllGenres(): Flow<List<String>>
+
+        @Query("SELECT DISTINCT author FROM stories")
+        fun getAllAuthors(): Flow<List<String>>
+
+        @Query("SELECT DISTINCT status FROM stories")
+        fun getAllStatuses(): Flow<List<String>>
 
 
         @Query("SELECT * FROM stories WHERE id = :storyId")
@@ -41,6 +52,8 @@
         @Query("SELECT * FROM stories")
         fun getaddStories():  Flow<List<Story>>
 
+        @Query("SELECT COUNT(*) FROM stories")
+        suspend fun getTotalStoryCount(): Int
 
 
 

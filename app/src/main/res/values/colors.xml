@@ -9,7 +9,7 @@
     <color name="yellow">#FFFFEB3B</color>
     <color name="grey">#808080</color>
     <color name="primaryColor1">#3F51B5</color> <!-- Hoặc đổi theo theme bạn muốn -->
-
+    <color name="colorPrimary">#3F51B5</color> <!-- hoặc bất kỳ mã màu nào bạn muốn -->
 
 
 </resources>

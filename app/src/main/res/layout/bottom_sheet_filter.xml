@@ -1,0 +1,30 @@
+<!-- res/layout/bottom_sheet_filter.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/filterSheetLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/titleFilter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chọn thể loại"
+        android:textStyle="bold"
+        android:textSize="18sp" />
+
+    <ListView
+        android:id="@+id/listFilterOptions"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:dividerHeight="1dp" />
+
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hủy"
+        android:layout_marginTop="8dp"
+        android:background="@color/black"/>
+</LinearLayout>

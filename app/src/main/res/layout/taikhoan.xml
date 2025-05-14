@@ -167,6 +167,7 @@
         app:menu="@menu/bottom_nav_menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:itemBackground="@color/white"
+
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

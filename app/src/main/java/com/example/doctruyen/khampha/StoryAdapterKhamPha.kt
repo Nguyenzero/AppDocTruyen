@@ -53,7 +53,7 @@ class StoryAdapterKhamPha(
         holder.tvTenTruyen.text = story.title
         holder.tvTheLoai.text = story.genre
 
-        // Lấy số sao trung bình từ DanhGiaDao (nếu không có, hiển thị 0)
+
 
 
         // Xử lý click chuyển sang trang chi tiết truyện

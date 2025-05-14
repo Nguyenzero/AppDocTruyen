@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:id="@+id/rootView">
+    android:id="@+id/rootView"
+    android:background="@color/white">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -28,45 +29,62 @@
                 android:elevation="4dp"
                 android:padding="8dp" />
 
-            <!-- Thể loại -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="Thể loại"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerViewTheLoai"
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/bannerViewPager"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:orientation="horizontal"
-                android:nestedScrollingEnabled="false" />
+                android:layout_height="220dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="0dp"
+                android:overScrollMode="never"
+                android:paddingStart="1dp"
+                android:paddingEnd="1dp"
+                android:clipToPadding="false"
+                android:clipChildren="false" />
+
 
             <!-- MỚI NHẤT - Phần thêm vào -->
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:text="Mới nhất"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                >
+
+                <TextView
+                    android:id="@+id/tvMoiNhat"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Mới nhất"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/tenmoinhat"
+                    android:layout_width="24dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ten"
+                    android:contentDescription="arrow" />
+            </LinearLayout>
+
+
 
 
             <!-- Truyện nổi bật -->
+
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewMoiNhat"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
+                android:layout_marginLeft="5dp"
                 android:layout_marginTop="-3dp"
                 android:clipToPadding="false"
                 android:nestedScrollingEnabled="false"
                 android:overScrollMode="never"
-                android:layout_marginLeft="5dp"/>
 
+                />
 
             <include
                 android:id="@+id/includeRating"
@@ -75,14 +93,31 @@
 
 
 
-            <!-- Đề cử -->
-            <TextView
-                android:layout_width="wrap_content"
+            <!-- Tất Cả truyện -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:text="Đề cử"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvTatCa"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Tất Cả"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/tenTatCa"
+                    android:layout_width="24dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ten"
+                    android:contentDescription="arrow" />
+            </LinearLayout>
+
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewTruyen"
@@ -90,6 +125,45 @@
                 android:layout_height="wrap_content"
                 android:nestedScrollingEnabled="false"
                 android:padding="8dp" />
+
+            <!-- Đề cử -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvDeCu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Đề cử"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/tendecu"
+                    android:layout_width="24dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ten"
+                    android:contentDescription="arrow" />
+            </LinearLayout>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewDeCu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:clipToPadding="false"
+                android:overScrollMode="never"
+                />
+
+
         </LinearLayout>
     </ScrollView>
 
@@ -101,5 +175,6 @@
         android:background="?android:attr/windowBackground"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/bottom_nav_menu"
-        app:itemBackground="@color/white"/>
+        app:itemBackground="@color/white"
+        />
 </LinearLayout>

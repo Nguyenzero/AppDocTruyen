@@ -1,37 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/white">
-    
-    <!-- TabLayout -->
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:tabGravity="fill"
-        app:tabMode="fixed"
-        android:background="@color/white"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white">
 
-       />
-    <!-- FragmentContainerView để chứa RankingFragment -->
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/ranking"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        app:layout_constraintTop_toBottomOf="@id/tabLayout"
-android:background="@color/white"
-        />
+        <!-- 3 Nút ở đầu trang -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:gravity="center">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?android:attr/windowBackground"
-        app:labelVisibilityMode="labeled"
-        app:menu="@menu/bottom_nav_menu"
-        app:itemBackground="@color/white"/>
-</LinearLayout>
+            <EditText
+                android:id="@+id/etSearch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Tìm truyện..."
+                android:padding="10dp"
+                android:drawableLeft="@android:drawable/ic_menu_search"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                />
+        </LinearLayout>
+
+        <!-- TabLayout -->
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:tabGravity="fill"
+            app:tabMode="fixed"
+            android:background="@color/white"
+            android:layout_marginTop="-15dp"
+
+            />
+
+        <!-- FragmentContainerView để chứa RankingFragment -->
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/ranking"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/white" />
+
+        <!-- Bottom Navigation -->
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/windowBackground"
+            app:labelVisibilityMode="labeled"
+            app:menu="@menu/bottom_nav_menu"
+            app:itemBackground="@color/white"
+            />
+    </LinearLayout>

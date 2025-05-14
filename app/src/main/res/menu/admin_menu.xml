@@ -11,21 +11,23 @@
 
     <item
         android:id="@+id/nav_manage_users"
-        android:title="Quản lý người dùng" />
+        android:title="Quản lý người dùng"
+        android:icon="@drawable/user" />
 
     <item
         android:id="@+id/nav_manage_stories"
-        android:title="Quản lý truyện" />
+        android:title="Quản lý truyện"
+        android:icon="@drawable/book" />
 
-    <item
-        android:id="@+id/nav_reports"
-        android:title="Thống kê và báo cáo" />
+
 
     <item
         android:id="@+id/nav_danhgia"
-        android:title="Quản Lý Đánh Giá" />
+        android:title="Quản Lý Đánh Giá"
+        android:icon="@drawable/star_admin" />
 
     <item
         android:id="@+id/nav_logout"
-        android:title="Đăng xuất" />
+        android:title="Đăng xuất"
+        android:icon="@drawable/logout" />
 </menu>

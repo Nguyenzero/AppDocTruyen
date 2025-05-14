@@ -1,134 +1,300 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawer_layout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
-
-    <!-- Main content -->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/adminLayout"
+    <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/white">
+    android:background="@color/white"
+        >
 
-        <!-- Nút mở menu giữ lại -->
-        <ImageButton
-            android:id="@+id/btnOpenMenu"
-            android:layout_width="75dp"
-            android:layout_height="60dp"
-            android:layout_margin="16dp"
-            android:background="?attr/selectableItemBackground"
-            android:contentDescription="Mở menu"
-            android:padding="12dp"
-            android:src="@drawable/menu"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <!-- Nội dung chính -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/adminLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#F8F8F8">
 
-        <!-- Tiêu đề -->
-        <TextView
-            android:id="@+id/tvAdminTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Trang Admin"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            app:layout_constraintTop_toTopOf="@id/btnOpenMenu"
-            app:layout_constraintStart_toEndOf="@id/btnOpenMenu"
-            app:layout_constraintBottom_toBottomOf="@id/btnOpenMenu"
-            app:layout_constraintVertical_bias="0.5" />
-
-        <!-- CardView thống kê -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardStats"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="6dp"
-            app:layout_constraintTop_toBottomOf="@id/btnOpenMenu"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
-
+            <!-- Header -->
             <LinearLayout
-                android:layout_width="match_parent"
+                android:id="@+id/headerLayout"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:orientation="horizontal"
+                android:padding="16dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
 
-                <TextView
-                    android:id="@+id/tvTotalUsers"
+                <ImageButton
+                    android:id="@+id/btnOpenMenu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Người dùng: 100"
-                    android:textSize="18sp" />
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/menu"
+                    android:contentDescription="Menu" />
 
                 <TextView
-                    android:id="@+id/tvTotalStories"
+                    android:id="@+id/tvAdminTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tổng truyện: 250"
-                    android:textSize="18sp"
-                    android:layout_marginTop="8dp" />
+
+                    android:layout_marginLeft="85dp"
+                    android:gravity="center"
+                    android:text="Home Admin"
+                    android:textColor="#000000"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
 
-        <!-- Các nút chức năng -->
-        <LinearLayout
-            android:id="@+id/btnPanel"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintTop_toBottomOf="@id/cardStats"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            <!-- Nội dung cuộn -->
+            <ScrollView
+                android:id="@+id/scrollViewAdmin"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:fillViewport="true"
+                app:layout_constraintTop_toBottomOf="@id/headerLayout"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
 
-            <Button
-                android:id="@+id/btnManageUsers"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Quản lý người dùng"
-                android:layout_marginBottom="12dp" />
+                <LinearLayout
+                    android:id="@+id/contentContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-            <Button
-                android:id="@+id/btnManageStories"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Quản lý truyện"
-                android:layout_marginBottom="12dp" />
+                    <!-- Thống kê -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardStats"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="24dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="4dp">
 
-            <Button
-                android:id="@+id/btnApproveStories"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Duyệt truyện"
-                android:layout_marginBottom="12dp" />
+                        <GridLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:columnCount="2"
+                            android:rowCount="2"
+                            android:padding="16dp"
+                            android:alignmentMode="alignMargins"
+                            android:useDefaultMargins="true"
+                            android:background="@color/white">
 
-            <Button
-                android:id="@+id/btnLogout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Đăng xuất"
-                android:textColor="@android:color/holo_red_dark" />
-        </LinearLayout>
+                            <!-- Người dùng -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:orientation="vertical"
+                                android:gravity="center_horizontal">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/user1"
+                                    android:layout_marginBottom="8dp"
+                                    android:contentDescription="Icon Người dùng" />
 
-    <!-- Navigation Drawer -->
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        app:menu="@menu/admin_menu"
-         />
+                                <TextView
+                                    android:id="@+id/tvTotalUsers"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="👤 Người dùng: 100"
+                                    android:textSize="16sp"
+                                    android:textColor="#000000" />
+                            </LinearLayout>
 
-</androidx.drawerlayout.widget.DrawerLayout>
+                            <!-- Tổng truyện -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:orientation="vertical"
+                                android:gravity="center_horizontal">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/book1"
+                                    android:layout_marginBottom="8dp"
+                                    android:contentDescription="Icon Tổng truyện" />
+
+                                <TextView
+                                    android:id="@+id/tvTotalStories"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="📚 Tổng truyện: 250"
+                                    android:textSize="16sp"
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <!-- Tổng đánh giá -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:orientation="vertical"
+                                android:gravity="center_horizontal">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/star1"
+                                    android:layout_marginBottom="8dp"
+                                    android:contentDescription="Icon Tổng đánh giá" />
+
+                                <TextView
+                                    android:id="@+id/tvTotalRatings"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="⭐ Tổng đánh giá: 450"
+                                    android:textSize="16sp"
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <!-- Tổng chương -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:orientation="vertical"
+                                android:gravity="center_horizontal">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/book"
+                                    android:layout_marginBottom="8dp"
+                                    android:contentDescription="Icon Tổng chương" />
+
+                                <TextView
+                                    android:id="@+id/tvTotalChapters"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="📖 Tổng chương: 1200"
+                                    android:textSize="16sp"
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+                        </GridLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+
+                    <!-- Truyện đề cử -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Truyện đề cử"
+                        android:textSize="18sp"
+                        android:padding="16dp"
+                        android:textStyle="bold"
+                        android:textColor="#000000"/>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardDeCu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="4dp">
+
+
+                        <!-- Layout bên trong CardView -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp"
+                            android:background="#F5F5F5">
+
+
+                            <FrameLayout
+                                android:id="@+id/deCuFragmentContainer"
+                                android:layout_width="match_parent"
+                                android:layout_height="150dp"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Top Lượt Đọc"
+                        android:textSize="18sp"
+                        android:padding="16dp"
+                        android:textStyle="bold"
+                        android:textColor="#000000"/>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardLuotXem"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="4dp">
+
+                        <!-- Layout bên trong CardView -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp"
+                            android:background="#F5F5F5">
+
+                            <FrameLayout
+                                android:id="@+id/luotDocFragmentContainer"
+                                android:layout_width="match_parent"
+                                android:layout_height="150dp"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Top Đánh Giá"
+                        android:textSize="18sp"
+                        android:padding="16dp"
+                        android:textStyle="bold"
+                        android:textColor="#000000"/>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardDanhGia"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="4dp"
+                        >
+
+
+                        <!-- Layout bên trong CardView -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp"
+                            android:background="#F5F5F5">
+
+                            <FrameLayout
+                                android:id="@+id/danhgiaFragmentContainer"
+                                android:layout_width="match_parent"
+                                android:layout_height="150dp"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+            </ScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Navigation Drawer -->
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            app:menu="@menu/admin_menu"
+            app:itemTextColor="@color/black"
+            app:itemIconTint="@color/black" />
+    </androidx.drawerlayout.widget.DrawerLayout>

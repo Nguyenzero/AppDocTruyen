@@ -32,12 +32,12 @@
             android:id="@+id/searchView"
             android:layout_width="0dp"
             android:layout_height="40dp"
+            android:layout_marginStart="12dp"
             android:layout_weight="1"
-            android:queryHint="Tìm kiếm truyện..."
-            android:iconifiedByDefault="false"
             android:background="@drawable/bg_searchview"
             android:elevation="2dp"
-            android:layout_marginStart="12dp" />
+            android:iconifiedByDefault="false"
+            android:queryHint="Tìm kiếm truyện..." />
     </LinearLayout>
 
     <!-- Nút Thêm Truyện -->
@@ -49,7 +49,7 @@
         android:textAllCaps="false"
         android:textStyle="bold"
         android:textColor="@android:color/white"
-        android:backgroundTint="@color/blue"
+        android:backgroundTint="@color/black"
         android:paddingHorizontal="20dp"
         android:paddingVertical="10dp"
         android:layout_gravity="end"

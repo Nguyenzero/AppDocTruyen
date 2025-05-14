@@ -38,6 +38,8 @@ interface DanhGiaDao {
     @Query("SELECT * FROM danhgia")
     fun getAllDanhGia(): kotlinx.coroutines.flow.Flow<List<DanhGia>>
 
+    @Query("SELECT COUNT(*) FROM danhgia WHERE story_id = :storyId")
+    suspend fun getTotalRatingsByStoryId(storyId: Int): Int
 
 
 

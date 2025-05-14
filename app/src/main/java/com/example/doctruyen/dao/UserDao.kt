@@ -36,4 +36,8 @@ interface UserDao {
     @Query("SELECT * FROM users WHERE id IN (:ids)")
     suspend fun getUsersByIds(ids: List<Int>): List<User>
 
+    @Query("SELECT COUNT(*) FROM users")
+    suspend fun getTotalUserCount(): Int
+
+
 }

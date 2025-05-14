@@ -35,13 +35,17 @@
             android:layout_height="wrap_content"
             android:text="#THỂ LOẠI"
             android:textColor="@android:color/holo_blue_dark"
-            android:textSize="12sp" />
+            android:textSize="12sp"
+            android:maxLines="1"
+            android:ellipsize="end"/>
 
         <!-- Tên truyện -->
         <TextView
             android:id="@+id/tvTitle"
-            android:layout_width="293dp"
+            android:layout_width="255dp"
             android:layout_height="39dp"
+            android:ellipsize="end"
+            android:maxLines="2"
             android:text="Tên Truyện"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -54,7 +58,9 @@
             android:layout_marginTop="1dp"
             android:text="Tác giả"
             android:textColor="@android:color/darker_gray"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:maxLines="1"
+            android:ellipsize="end"/>
 
         <!-- Đánh giá và lượt xem -->
         <LinearLayout

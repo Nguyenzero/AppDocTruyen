@@ -1,116 +1,114 @@
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="8dp"
-        >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp">
 
-        <!-- Hình ảnh truyện -->
+    <!-- Hình ảnh truyện -->
+    <ImageView
+        android:id="@+id/imgTruyen"
+        android:layout_width="153dp"
+        android:layout_height="215dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rounded_image"
+        android:clipToOutline="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/kham_pha" />
 
-        <ImageView
-            android:id="@+id/imgTruyen"
-            android:layout_width="153dp"
-            android:layout_height="215dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/rounded_image"
-            android:clipToOutline="true"
-            android:scaleType="centerCrop"
-            android:src="@drawable/kham_pha" />
+    <LinearLayout
+        android:layout_width="248dp"
+        android:layout_height="238dp"
+        android:orientation="vertical"
+        android:padding="8dp">
 
+        <!-- Tên truyện -->
+        <TextView
+            android:id="@+id/tvTenTruyen"
+            android:layout_width="195dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="Đỉnh Cấp Khí Vận, Lặng Lẽ Tu Luyện Ngàn Năm"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- Thể loại -->
+        <TextView
+            android:id="@+id/tvTheLoai"
+            android:layout_width="159dp"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="Tiên Hiệp"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp"
+            android:layout_marginTop="8dp" />
+
+        <!-- Mô tả truyện -->
+        <TextView
+            android:id="@+id/tvMoTa"
+            android:layout_width="182dp"
+            android:layout_height="64dp"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:paddingTop="4dp"
+            android:singleLine="false"
+            android:text="Mô tả truyện ở đây..."
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp" />
+
+        <!-- Đánh giá sao -->
         <LinearLayout
-            android:layout_width="248dp"
-            android:layout_height="238dp"
-            android:orientation="vertical"
-            android:padding="8dp">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-            <!-- Tên truyện -->
+            <ImageView
+                android:id="@+id/imgStar"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/star"
+                android:layout_marginTop="10dp" />
+
             <TextView
-                android:id="@+id/tvTenTruyen"
-                android:layout_width="232dp"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:text="Đỉnh Cấp Khí Vận, Lặng Lẽ Tu Luyện Ngàn Năm"
-                android:textSize="18sp"
+                android:id="@+id/txtRating"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="4dp"
+                android:text="4.5"
+                android:textSize="16sp"
+                android:layout_marginTop="9dp"
                 android:textStyle="bold" />
+        </LinearLayout>
 
-            <!-- Thể loại -->
-            <TextView
-                android:id="@+id/tvTheLoai"
-                android:layout_width="159dp"
-                android:layout_height="wrap_content"
-                android:text="Tiên Hiệp"
-                android:textColor="@android:color/darker_gray"
-                android:textSize="14sp"
-                android:layout_marginTop="8dp"
-                android:ellipsize="end" />
+        <!-- Nút Đọc và Thêm -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:orientation="horizontal">
 
-            <!-- Mô tả truyện -->
-            <TextView
-                android:id="@+id/tvMoTa"
-                android:layout_width="200dp"
-                android:layout_height="65dp"
-                android:ellipsize="end"
-                android:maxLines="2"
-
-                android:paddingTop="4dp"
-                android:text="Mô tả truyện ở đây..."
-                android:textColor="@android:color/darker_gray"
-                android:textSize="14sp" />
-
-            <!-- Đánh giá sao -->
-
-            <!-- Nút Đọc và Thêm -->
-            <LinearLayout
+            <Button
+                android:id="@+id/btnDoc"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
+                android:layout_height="52dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/black"
+                android:text="Đọc"
+                android:textColor="@android:color/white" />
 
-                <ImageView
-                    android:id="@+id/imgStar"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/star"
-                    android:layout_marginTop="10dp"
-                    />
-
-                <TextView
-                    android:id="@+id/txtRating"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="4dp"
-                    android:text="4.5"
-                    android:textSize="16sp"
-                    android:layout_marginTop="9dp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <ImageButton
+                android:id="@+id/btnThem"
+                android:layout_width="41dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="13dp"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/btnDoc"
-                    android:layout_width="wrap_content"
-                    android:layout_height="52dp"
-                    android:layout_marginTop="10dp"
-                    android:backgroundTint="@color/black"
-                    android:text="Đọc"
-                    android:textColor="@android:color/white" />
-
-                <ImageButton
-                    android:id="@+id/btnThem"
-                    android:layout_width="41dp"
-                    android:layout_height="44dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="13dp"
-                    android:background="@drawable/rounded_button"
-                    android:backgroundTint="@color/blue"
-                    android:contentDescription="Thêm"
-                    android:src="@drawable/add" />
-
-            </LinearLayout>
+                android:background="@drawable/rounded_button"
+                android:backgroundTint="@color/blue"
+                android:contentDescription="Thêm"
+                android:src="@drawable/add" />
         </LinearLayout>
     </LinearLayout>
+</LinearLayout>

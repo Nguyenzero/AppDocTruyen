@@ -28,6 +28,9 @@ interface ViewDao {
 
     @Query("SELECT * FROM views ORDER BY views DESC")
     fun getAllRankings(): LiveData<List<View>>  // Lấy tất cả các ranking, sắp xếp theo lượt xem
+
+    @Query("SELECT views FROM views WHERE story_id = :storyId LIMIT 1")
+    suspend fun getViewCountByStoryId(storyId: Int): Int?
 }
 
 
